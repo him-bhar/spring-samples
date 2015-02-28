@@ -1,4 +1,4 @@
-h1.Spring Security Integration with Spring Boot Securing Http Urls
+#Spring Security Integration with Spring Boot Securing Http Urls
 
 In the current implementation here, there are two ways of authentication:
 
