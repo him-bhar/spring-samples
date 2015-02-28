@@ -39,6 +39,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
     //http.regexMatcher("/**").csrf().disable();
   }*/
 
+  @Override
   protected void configure(HttpSecurity http) throws Exception {
     http.antMatcher("/secure/**").authorizeRequests().anyRequest().authenticated().and().httpBasic();
   }
