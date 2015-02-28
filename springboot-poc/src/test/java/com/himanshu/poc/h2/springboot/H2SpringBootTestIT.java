@@ -15,8 +15,6 @@
  */
 package com.himanshu.poc.h2.springboot;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
