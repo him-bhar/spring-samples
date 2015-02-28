@@ -15,50 +15,42 @@
  */
 package com.himanshu.poc.h2.springboot;
 
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 
-import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.TestRestTemplate;
+import org.springframework.http.HttpEntity;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = SampleCommandLineStarter.class)
+@SpringApplicationConfiguration(classes = SampleWebStarter.class)
 @WebAppConfiguration
 @IntegrationTest(value="server.port:0")
 public class H2SpringBootTestIT {
 	private Logger logger = LoggerFactory.getLogger(H2SpringBootTestIT.class);
-
-	@Autowired
-	private DummyTblDao dummyTblDao;
-
-	@Autowired
-	private PersonDao personDao;
-
-	@Test
-	public void testDummyTableDao() {
-		logger.info("dummyTblDao " + dummyTblDao);
-		Assert.assertNotNull(dummyTblDao);
-		List<String> names = dummyTblDao.getNames();
-		Assert.assertNotNull(names);
-		Assert.assertTrue(names.size() == 3);
-		logger.info(names.toString());
+	
+	@Value("${local.server.port}")
+  private int port;
+	
+	private String url = null;
+	
+	@Before
+	public void setup() {
+	  url = "http://localhost:"+this.port;
 	}
-
+	
+	
 	@Test
-	public void testPersonDao() {
-		logger.info("personDao " + personDao);
-		Assert.assertNotNull(personDao);
-		List<String> names = personDao.getNames();
-		Assert.assertNotNull(names);
-		Assert.assertTrue(names.size() == 3);
-		logger.info(names.toString());
+	public void testSimpleGet() {
+	  HttpEntity<String> response = new TestRestTemplate().getForEntity(url.concat("/sample/echo/all"), String.class);
+	  logger.info("Response is :->"+response);
 	}
-
 }
