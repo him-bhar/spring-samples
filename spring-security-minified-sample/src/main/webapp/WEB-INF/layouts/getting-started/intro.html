@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:include="fragments/header :: headerIncludes">
+
+</head>
+<body>
+    <div th:include="fragments/header :: headerFragment"></div>
+    <div class="container">
+        <div class="page-header">
+            <h1>Getting Started <small>A quick user guide</small></h1>
+        </div>
+        <p class="lead text-muted">This site is useful for users who believe in the concept of contri-parties (parties funded by individual contribution). 
+        Usually what happens is one person volunteers to pay the complete bill and then takes up the task of distributing the individual shares and then sending reminder mails for payments. 
+        And the biggest trouble of all tracking the payments back.</p>
+        <br />
+        <p class="lead text-muted">This site makes all these tasks pretty easy to do. And does all the job of saving the individual shares, sending reminders and tracking payments.</p>
+        <div class="page-header">
+            <h2>Features <small>Currently available</small></h2>
+        </div>
+        <p class="lead text-muted">At the moment there are three available features in here.</p>
+        <ul class="list-group">
+            <li class="list-group-item">Friends</li>
+            <li class="list-group-item">Events</li>
+            <li class="list-group-item">Shares</li>
+        </ul>
+        
+        <div class="list-group">
+            <div class="list-group-item">
+                <h4 class="list-group-item-heading">Friends:</h4>
+                <p class="list-group-item-text">This data is heart of the service you are trying to use. As you cannot distribute anything unless and until you do not have any friends added in your profile.</p>
+            </div>
+            <div class="list-group-item">
+                <h4 class="list-group-item-heading">Events:</h4>
+                <p class="list-group-item-text">This is a good to have information, and is of use with the user of this application only. Benefit: While distributing the shares the user can map the current distribution with a event. Note: One event can be mapped to only one distribution.</p>
+            </div>
+            <div class="list-group-item">
+                <h4 class="list-group-item-heading">Shares:</h4>
+                <p class="list-group-item-text">This is where the user will actually be doing the job of assigning shares to friends. Sending of alerts (payment reminders and payment confirmations) too is done from the shares section only.</p>
+            </div>
+        </div>
+    </div>
+    <div th:include="fragments/footer :: [//footer]"></div>
+</body>
+</html>

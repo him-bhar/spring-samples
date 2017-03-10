@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:include="fragments/header :: headerIncludes">
+
+</head>
+<body>
+
+	<div th:include="fragments/header :: headerFragment"></div>
+	<form th:action="@{/friends/addmore}" th:method="post" th:object="${friendsList}">	
+		<div class="container">
+			<br />
+			<h1>View Friends</h1>
+	
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Email</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="friend, rowStat : *{friends}">
+					    <td>
+					        <span th:text="*{friends[__${rowStat.index}__].firstname}"></span>
+					    </td>
+					    <td>
+					        <span th:text="*{friends[__${rowStat.index}__].lastname}"></span>
+					    </td>
+					    <td>
+					        <span th:text="*{friends[__${rowStat.index}__].email}"></span>
+					    </td>
+					    <td>
+					        <a class="btn btn-primary btn-xs" th:href="@{/friends/{id}/edit(id=*{friends[__${rowStat.index}__].id})}"><span class="glyphicon glyphicon-edit"></span>&nbsp;Edit</a>
+					    </td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="form-group">
+                <div class="col-md-offset-4 col-md-8">
+                    <!--/* <button type="submit" class="btn btn-primary">Add more friends</button>
+                    <button type="submit" class="btn btn-primary" th:formaction="@{/friends/save}">Save Friends</button> */-->
+                </div>
+            </div>
+			
+		</div>
+	</form>
+	<div th:include="fragments/footer :: [//footer]"></div>
+</body>
+</html>

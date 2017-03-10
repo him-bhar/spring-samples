@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:include="fragments/header :: headerIncludes">
+
+</head>
+<body>
+
+	<div th:include="fragments/header :: headerFragment"></div>
+	<form th:method="post" th:object="${sharesList}">	
+		<div class="container">
+			<br />
+			<h1>View Shares</h1>
+	
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th>Share</th>
+						<th>Total Amount</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="share, rowStat : *{shares}">
+					    <td>
+					        <span th:text="*{shares[__${rowStat.index}__].shareTagName}"></span>
+					    </td>
+					    <td>
+					        <span th:text="*{shares[__${rowStat.index}__].totalAmt}"></span>
+					    </td>
+					    <td>
+					        <a th:href="@{/share/{id}/view(id=*{shares[__${rowStat.index}__].id})}" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-screenshot"></span>&nbsp;View</a>
+					    </td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="form-group">
+                <div class="col-md-offset-4 col-md-8">
+                </div>
+            </div>
+			
+		</div>
+	</form>
+	<div th:include="fragments/footer :: [//footer]"></div>
+</body>
+</html>

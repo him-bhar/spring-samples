@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/header :: headerIncludes(title='Login Page')">
+	<title>Login Page</title>
+</head>
+    <body>
+        <div th:include="fragments/header :: headerFragment"></div>
+        <h1>Login page</h1>
+<!--/*         <p>Example administrator: jim / demo</p> */-->
+<!--/*         <p>Example user: bob / demo</p> */-->
+<!--/*         <p>Example user and administrator: ted / demo</p> */-->
+        <div th:if="${loginError}" class="alert bg-danger">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <!--/* <p th:if="${loginError}" class="error">Wrong user or password</p>   */-->
+            <!--/* <p class="error">Wrong user or password</p> */-->
+			<span th:text="${loginErrorMsg}">Wrong user or password</span>
+        </div>
+        <div th:if="${actionSuccessful == true}" class="alert bg-success">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+			<span th:text="${actionMsg}">Action successfully performed.</span>
+        </div>
+        <div th:if="${actionSuccessful == false}" class="alert bg-danger">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+			<span th:text="${actionMsg}">There is some problem performing current operation, please mail to admin for quick resolution.</span>
+        </div>
+        <form th:action="@{/authenticate}" method="post" class="form-horizontal">
+            <div class="form-group">
+                <label for="j_username" class="control-label col-xs-2">Username:</label>
+                <div class="col-xs-4">
+                    <input type="text" id="j_username" name="j_username" autofocus="autofocus" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="j_password" class="control-label col-xs-2">Password:</label>
+                <div class="col-xs-4">
+                    <input type="password" id="j_password" name="j_password" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-offset-2 col-xs-6">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                    <a class="btn btn-link btn-xs" href="#" th:href="@{/forgot-password}">Forgot Password</a>
+                </div>
+            </div>
+        </form>
+<!--/*         <p><a href="../index.html" th:href="@{/index.html}">Back to home page</a></p> */-->
+        <div th:include="fragments/footer :: [//footer]"></div>
+    </body>
+</html>
