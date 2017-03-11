@@ -34,12 +34,12 @@
                 <span class="help-block" th:if="${#fields.hasErrors('rePassword')}" th:errors="*{rePassword}">Incorrect password</span>
             </div>
         </div>
-        <div class="form-group">
+        <!--/* <div class="form-group">
             <label for="repassword" class="control-label col-xs-2">Bot check</label>
             <div class="col-xs-4">
                 <div class="g-recaptcha" th:attr="data-sitekey=${pubKey}"></div>
             </div>
-        </div>
+        </div> */-->
         <div class="form-group">
             <div class="col-xs-offset-2 col-xs-6">
                 <button type="submit" class="btn btn-primary">Register</button>

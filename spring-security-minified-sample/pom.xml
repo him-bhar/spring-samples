@@ -34,6 +34,7 @@
 	<jackson-databind.version>2.8.6</jackson-databind.version>
 	<jackson-dataformat-xml.version>2.8.6</jackson-dataformat-xml.version>
 	<snake-yaml.version>1.17</snake-yaml.version>
+	<hibernate.version>5.4.0.Final</hibernate.version>
   </properties>
   
   <dependencyManagement>
@@ -237,6 +238,13 @@
       <groupId>org.yaml</groupId>
       <artifactId>snakeyaml</artifactId>
       <version>${snake-yaml.version}</version>
+    </dependency>
+    
+    <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>${hibernate.version}</version>
     </dependency>
     
   </dependencies>
