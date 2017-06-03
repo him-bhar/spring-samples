@@ -40,46 +40,46 @@ import com.himanshu.poc.springbootsec.starter.SampleWebStarter;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = SampleWebStarter.class)
 @WebAppConfiguration
-@IntegrationTest(value="server.port:0")
+@IntegrationTest(value = "server.port:0")
 public class SampleControllerSecurityTestIT {
-	private Logger logger = LoggerFactory.getLogger(SampleControllerSecurityTestIT.class);
-	
-	@Value("${local.server.port}")
+  private Logger logger = LoggerFactory.getLogger(SampleControllerSecurityTestIT.class);
+
+  @Value("${local.server.port}")
   private int port;
-	
-	private String url = null;
-	
-	@Before
-	public void setup() {
-	  url = "http://localhost:"+this.port;
-	}
-	
-	@Test
-	public void testSecureGetWithUserAndPass() {
-	  HttpEntity<String> response = new TestRestTemplate("Himanshu", "Bhardwaj").getForEntity(url.concat("/secure/sample/test"), String.class);
-	  logger.info("Response is :->"+response);
-	}
-	
-	@Test
+
+  private String url = null;
+
+  @Before
+  public void setup() {
+    url = "http://localhost:" + this.port;
+  }
+
+  @Test
+  public void testSecureGetWithUserAndPass() {
+    HttpEntity<String> response = new TestRestTemplate("Himanshu", "Bhardwaj").getForEntity(url.concat("/secure/sample/test"), String.class);
+    logger.info("Response is :->" + response);
+  }
+
+  @Test
   public void testSecureGetWithToken() {
     ResponseEntity<String> response = new TestRestTemplate("Himanshu", "Bhardwaj").getForEntity(url.concat("/secure/generate/token/Himanshu"), String.class);
-    logger.info("Response is :->"+response);
+    logger.info("Response is :->" + response);
     String tokenReceived = response.getBody();
     Assert.assertThat(response.getStatusCode(), Matchers.equalTo(HttpStatus.OK));
-    
+
     HttpHeaders headers = new HttpHeaders();
     headers.add("Authorization", "Basic ".concat(generateAuthorizationToken(tokenReceived)));
-    
+
     HttpEntity<Object> requestEntity = new HttpEntity<Object>(headers);
-    
+
     ResponseEntity<String> response2 = new TestRestTemplate().exchange(url.concat("/secure/sample/test"), HttpMethod.GET, requestEntity, String.class);
-    logger.info("Response2 is :->"+response2);
+    logger.info("Response2 is :->" + response2);
     Assert.assertThat(response2.getStatusCode(), Matchers.equalTo(HttpStatus.OK));
-    
+
     ResponseEntity<String> response3 = new TestRestTemplate().exchange(url.concat("/secure/sample/test/forbidden"), HttpMethod.GET, requestEntity, String.class);
-    logger.info("Response3 is :->"+response3);
+    logger.info("Response3 is :->" + response3);
     Assert.assertThat(response3.getStatusCode(), Matchers.equalTo(HttpStatus.FORBIDDEN));
-    
+
   }
 
   private String generateAuthorizationToken(String tokenReceived) {

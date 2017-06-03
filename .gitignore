@@ -46,3 +46,6 @@ Temporary Items
 .classpath
 .project
 target/*
+
+.idea
+*.iml
