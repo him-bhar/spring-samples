@@ -34,4 +34,12 @@ public class Welcome {
   public int hashCode() {
     return Objects.hash(msg);
   }
+
+  @Override
+  public String toString() {
+    final StringBuilder sb = new StringBuilder("Welcome{");
+    sb.append("msg='").append(msg).append('\'');
+    sb.append('}');
+    return sb.toString();
+  }
 }

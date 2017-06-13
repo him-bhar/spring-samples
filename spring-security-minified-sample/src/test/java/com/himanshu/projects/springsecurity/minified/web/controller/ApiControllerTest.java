@@ -133,7 +133,7 @@ public class ApiControllerTest {
             .andDo(MockMvcResultHandlers.print())
             .andExpect(MockMvcResultMatchers.status().isOk())
             .andExpect(MockMvcResultMatchers.request().asyncStarted())
-            .andExpect(MockMvcResultMatchers.request().asyncResult(new Welcome("Pranam")))
+            .andExpect(MockMvcResultMatchers.request().asyncResult(new Welcome("Hello Maharaja")))
             .andReturn();
     mockMvc
             .perform(MockMvcRequestBuilders.asyncDispatch(mvcResult))

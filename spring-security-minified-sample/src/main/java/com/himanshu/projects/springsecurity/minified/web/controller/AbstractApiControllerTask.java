@@ -21,6 +21,7 @@ public abstract class AbstractApiControllerTask<T> implements ApiControllerTask 
   @Override
   public void run() {
     logger.info("Generating response for task Id: {}", getId());
+    innerRun();
   }
 
   @Override
