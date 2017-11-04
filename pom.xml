@@ -1,0 +1,22 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.himanshu.spring.samples</groupId>
+	<artifactId>spring-samples-aggregator</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>spring-samples-aggregator</name>
+	<url>http://maven.apache.org</url>
+
+	<modules>
+	  <module>spring-aspectj-example</module>
+	  <module>spring-boot-minified-sample</module>
+	  <module>springboot-poc</module>
+	  <module>spring-boot-security-demo</module>
+	  <module>spring-concepts</module>
+	  <module>spring-context-loaders</module>
+	  <module>spring-quartz</module>
+	  <!--<module>spring-security-custom-welcome-page</module>-->
+	  <module>spring-security-minified-sample</module>
+	</modules>
+</project>
