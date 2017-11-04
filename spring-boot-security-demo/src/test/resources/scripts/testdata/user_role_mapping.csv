@@ -1,0 +1,5 @@
+USERNAME,ROLE_NAME
+"Admin","ADMIN_ROLE"
+"Himanshu","ADMIN_ROLE"
+"Himanshu","USER_ROLE"
+"User","USER_ROLE"
