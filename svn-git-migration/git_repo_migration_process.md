@@ -46,7 +46,7 @@ git clone -c core.longpaths=true file:///c/migrationCode/git_repo_name
 Do log rewrite since we moved all files to sub-directory called `abc`.
 
 ```bash
-git filter-branch --tree-filter "mkdir -p /tmp/abc;mv */tmp/abc; mv /tmp/abc ./" HEAD
+git filter-branch --tree-filter "mkdir -p /tmp/abc;mv * /tmp/abc; mv /tmp/abc ./" HEAD
 ```
 
 ### Merging (For Consolidation)
