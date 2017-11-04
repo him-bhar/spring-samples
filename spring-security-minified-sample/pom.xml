@@ -1,0 +1,297 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+        http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.himanshu.articles.poc</groupId>
+  <artifactId>spring-security-minified-sample</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <name>Spring Security Minified Sample</name>
+  <url>http://maven.apache.org</url>
+  
+  <properties>
+    <java-version>1.8</java-version>
+    <c3p0.version>0.9.5-pre10</c3p0.version>
+    <logback.version>1.1.2</logback.version>
+    <slf4j.version>1.7.7</slf4j.version>
+	<thymeleaf.version>3.0.3.RELEASE</thymeleaf.version>
+	<thymeleaf.spring4.version>3.0.3.RELEASE</thymeleaf.spring4.version>
+	<thymeleaf.dialect.version>1.2.1</thymeleaf.dialect.version>
+	<thymeleafspringsecurity4.version>3.0.2.RELEASE</thymeleafspringsecurity4.version>
+	<commons-io.version>2.4</commons-io.version>
+	<validation-api.version>1.1.0.RELEASE</validation-api.version>
+	<hibernate-validator.version>5.1.1.Final</hibernate-validator.version>
+	<jasypt.version>1.9.2</jasypt.version>
+	<vt-password.version>3.1.2</vt-password.version>
+	<servlet-api.version>3.1.0</servlet-api.version>
+	<jaxb2-plugin.version>2.2</jaxb2-plugin.version>
+	<hsqldb.version>2.0.0</hsqldb.version>
+	<hamcrest-core.version>1.3</hamcrest-core.version>
+    <junit-version>4.12</junit-version>
+	<!--<spring.version>4.3.5.RELEASE</spring.version>-->
+	<spring-security.version>4.2.2.RELEASE</spring-security.version>
+	<apache.commons-codec.version>1.6</apache.commons-codec.version>
+	<jackson-databind.version>2.8.6</jackson-databind.version>
+	<jackson-dataformat-xml.version>2.8.6</jackson-dataformat-xml.version>
+	<snake-yaml.version>1.17</snake-yaml.version>
+	<hibernate.version>5.4.0.Final</hibernate.version>
+  </properties>
+  
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-framework-bom</artifactId>
+        <version>4.3.5.RELEASE</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+  
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>${servlet-api.version}</version>
+      <scope>provided</scope>
+	</dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit-version}</version>
+    </dependency>
+	  
+    <!-- Spring framework -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <!--<version>${spring.version}</version>-->
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <!--<version>${spring.version}</version>-->
+    </dependency>
+      
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <!--<version>${spring.version}</version>-->
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context-support</artifactId>
+      <!--<version>${spring.version}</version>-->
+    </dependency>
+     
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-tx</artifactId>
+      <!--<version>${spring.version}</version>-->
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-orm</artifactId>
+      <!--<version>${spring.version}</version>-->
+    </dependency>
+      
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <!--<version>${spring.version}</version>-->
+    </dependency>
+    
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <!--<version>${spring.version}</version>-->
+    </dependency>
+	
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-core</artifactId>
+      <version>${spring-security.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-web</artifactId>
+      <version>${spring-security.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-config</artifactId>
+      <version>${spring-security.version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.thymeleaf.extras</groupId>
+      <artifactId>thymeleaf-extras-springsecurity4</artifactId>
+      <version>${thymeleafspringsecurity4.version}</version>
+      <scope>compile</scope>
+    </dependency>
+	
+	<dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>${logback.version}</version>
+    </dependency>
+      
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+      
+    <dependency>
+      <groupId>com.mchange</groupId>
+      <artifactId>c3p0</artifactId>
+      <version>${c3p0.version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest-core</artifactId>
+      <version>${hamcrest-core.version}</version>
+    </dependency>
+
+     <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest-library</artifactId>
+      <version>${hamcrest-core.version}</version>
+    </dependency>
+	  
+    <!-- Thymeleaf Web Deps-->
+    <dependency>
+      <groupId>org.thymeleaf</groupId>
+      <artifactId>thymeleaf</artifactId>
+      <version>${thymeleaf.version}</version>
+    </dependency>
+	  
+    <dependency>
+      <groupId>org.thymeleaf</groupId>
+      <artifactId>thymeleaf-spring4</artifactId>
+      <version>${thymeleaf.spring4.version}</version>
+    </dependency>
+	  
+    <dependency>
+      <groupId>nz.net.ultraq.thymeleaf</groupId>
+      <artifactId>thymeleaf-layout-dialect</artifactId>
+      <version>${thymeleaf.dialect.version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.hsqldb</groupId>
+      <artifactId>hsqldb</artifactId>
+      <version>${hsqldb.version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.jasypt</groupId>
+      <artifactId>jasypt</artifactId>
+      <version>${jasypt.version}</version>
+    </dependency>
+	  
+	<dependency>
+      <groupId>org.jasypt</groupId>
+      <artifactId>jasypt-spring31</artifactId>
+      <version>${jasypt.version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>${apache.commons-codec.version}</version>
+    </dependency>
+    
+    <!-- Jackson -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson-databind.version}</version>
+    </dependency>
+      
+    <!-- Jackson with XML format support -->
+    <!-- This is added to avoid. Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerAdapter' 
+    defined in class org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration: 
+    Bean instantiation via factory method failed; nested exception is 
+    org.springframework.beans.BeanInstantiationException: Failed to instantiate 
+    [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]
+    :Factory method 'requestMappingHandlerAdapter' threw exception; nested exception is 
+    java.lang.IllegalStateException: Could not instantiate XmlMapper - not found on classpath -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.dataformat</groupId>
+      <artifactId>jackson-dataformat-xml</artifactId>
+      <version>${jackson-dataformat-xml.version}</version>
+    </dependency>
+	  
+	<!-- https://mvnrepository.com/artifact/org.yaml/snakeyaml -->
+	<!-- To support application/yaml support, need to convert Java object to yaml -->
+    <dependency>
+      <groupId>org.yaml</groupId>
+      <artifactId>snakeyaml</artifactId>
+      <version>${snake-yaml.version}</version>
+    </dependency>
+    
+    <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>${hibernate.version}</version>
+    </dependency>
+    
+  </dependencies>
+
+  <build>
+    <finalName>${project.artifactId}-${project.version}</finalName>
+
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.1</version>
+        <configuration>
+          <source>${java-version}</source>
+          <target>${java-version}</target>
+        </configuration>
+      </plugin>
+	  <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.18</version>
+        <configuration>
+          <systemPropertyVariables>
+            <env>dev</env>
+            <jdbc.inmem.db>true</jdbc.inmem.db>
+          </systemPropertyVariables>
+          <includes>
+            <include>**/**Test.java</include>
+          </includes>
+        </configuration>
+      </plugin>
+	  <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.0.0</version>
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

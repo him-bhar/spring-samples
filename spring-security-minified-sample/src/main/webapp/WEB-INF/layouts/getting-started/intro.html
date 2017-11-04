@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:include="fragments/header :: headerIncludes">
+
+</head>
+<body>
+    <div th:include="fragments/header :: headerFragment"></div>
+    <div class="container">
+        <div class="page-header">
+            <h1>Getting Started <small>A quick user guide</small></h1>
+        </div>
+        <p class="lead text-muted">Test String.</p>
+        <br />
+        <p class="lead text-muted">Test String 2.</p>
+        <div class="page-header">
+            <h2>Features <small>Currently available</small></h2>
+        </div>
+        <p class="lead text-muted">At the moment there are three available features in here.</p>
+        <ul class="list-group">
+            <li class="list-group-item">T1</li>
+            <li class="list-group-item">T2</li>
+            <li class="list-group-item">T3</li>
+        </ul>
+        
+        <div class="list-group">
+            <div class="list-group-item">
+                <h4 class="list-group-item-heading">T4:</h4>
+                <p class="list-group-item-text">Test String-3.</p>
+            </div>
+            <div class="list-group-item">
+                <h4 class="list-group-item-heading">T5:</h4>
+                <p class="list-group-item-text">Test String-4.</p>
+            </div>
+            <div class="list-group-item">
+                <h4 class="list-group-item-heading">T6:</h4>
+                <p class="list-group-item-text">Test String-5.</p>
+            </div>
+        </div>
+    </div>
+    <div th:include="fragments/footer :: [//footer]"></div>
+</body>
+</html>
