@@ -18,5 +18,6 @@
 	  <module>spring-quartz</module>
 	  <!--<module>spring-security-custom-welcome-page</module>-->
 	  <module>spring-security-minified-sample</module>
+	  <module>springboot-eureka-demo</module>
 	</modules>
 </project>
