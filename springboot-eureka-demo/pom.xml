@@ -18,6 +18,9 @@
 	  <module>eureka-service</module>
 	  <module>eureka-client</module>
 	  <module>eureka-another-client</module>
+	  <module>eureka-client-without-springboot</module>
+	  <module>eureka-feign-client</module>
+	  <module>hystrix-demo</module>
 	</modules>
 	
 </project>

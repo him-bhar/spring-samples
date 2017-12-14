@@ -6,10 +6,10 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 
 @SpringBootApplication(scanBasePackages = {"com.himanshu.spring.eureka.another"})
-@EnableEurekaClient
+//@EnableEurekaClient
 @EnableFeignClients
-public class AnotherEurekaClientApplication {
+public class FeignEurekaClientApplication {
   public static void main(String[] args) {
-    new SpringApplication(AnotherEurekaClientApplication.class).run(args);
+    new SpringApplication(FeignEurekaClientApplication.class).run(args);
   }
 }
