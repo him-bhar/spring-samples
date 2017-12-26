@@ -20,5 +20,6 @@
 	  <module>spring-security-minified-sample</module>
 	  <module>springboot-eureka-demo</module>
 	  <module>spring5-mvc-hibernate-demo</module>
+      <module>spring5-webflux-demo</module>
 	</modules>
 </project>
