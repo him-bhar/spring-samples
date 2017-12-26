@@ -19,5 +19,6 @@
 	  <!--<module>spring-security-custom-welcome-page</module>-->
 	  <module>spring-security-minified-sample</module>
 	  <module>springboot-eureka-demo</module>
+	  <module>spring5-mvc-hibernate-demo</module>
 	</modules>
 </project>
