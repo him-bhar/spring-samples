@@ -21,5 +21,6 @@
 	  <module>springboot-eureka-demo</module>
 	  <module>spring5-mvc-hibernate-demo</module>
       <module>spring5-webflux-demo</module>
+	  <module>springboot-web-reactive</module>
 	</modules>
 </project>
