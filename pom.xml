@@ -22,5 +22,6 @@
 	  <module>spring5-mvc-hibernate-demo</module>
       <module>spring5-webflux-demo</module>
 	  <module>springboot-web-reactive</module>
+	  <module>spring-boot-2</module>
 	</modules>
 </project>
