@@ -43,8 +43,8 @@ public class DBConfig {
   
   @Value("${jdbc.driverClassName}")
   private String driverClassName;
-  
-  @Bean
+
+  @Bean(name = "securityDS")
   public DataSource getDataSource() throws PropertyVetoException {
     logger.info("Instantiating from actual DB server");
     HikariConfig hikariConfig = new HikariConfig();
@@ -57,9 +57,9 @@ public class DBConfig {
     HikariDataSource ds = new HikariDataSource(hikariConfig);
     return ds;
   }
-  
-  @Bean
-  public PlatformTransactionManager transactionManager() throws PropertyVetoException {
+
+  @Bean(name="securityTransactionManager")
+  public PlatformTransactionManager transactionManager(@Qualifier("securityDS") DataSource dataSource) throws PropertyVetoException {
     DataSourceTransactionManager dsTransactionManager = new DataSourceTransactionManager(getDataSource());
     return dsTransactionManager;
   }

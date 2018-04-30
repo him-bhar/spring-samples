@@ -4,6 +4,7 @@ import com.himanshu.springboot2.foundation.security.dao.*;
 import com.himanshu.springboot2.foundation.security.services.IUserService;
 import com.himanshu.springboot2.foundation.security.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -14,6 +15,7 @@ import javax.sql.DataSource;
 public class SecurityBeansConfigurer {
 
   @Autowired
+  @Qualifier("securityDS")
   private DataSource dataSource;
 
   @Bean

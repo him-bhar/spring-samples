@@ -1,5 +1,6 @@
-package com.himanshu.springboot2.foundation.security.config;
+package com.himanshu.springboot2.angular.config;
 
+import com.himanshu.springboot2.foundation.security.config.InMemDBCondition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -15,26 +16,27 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 import java.beans.PropertyVetoException;
 
-@Conditional(value=InMemDBCondition.class)
+
 @Configuration
 @EnableTransactionManagement
-public class InMemDBConfig {
+public class DBConfig {
   
-  private static Logger logger = LoggerFactory.getLogger(InMemDBConfig.class);
-  
-  @Bean(name = "securityDS")
+  private static Logger logger = LoggerFactory.getLogger(DBConfig.class);
+
+  @Conditional(value=InMemDBCondition.class)
+  @Bean(name = "sampleDS")
   public DataSource getDataSource() throws PropertyVetoException {
-    logger.info("Instantiating InMem DBServer");
+    logger.info("Instantiating InMem DBServer for sample DB");
     EmbeddedDatabaseBuilder embeddedDatabaseBuilder = new EmbeddedDatabaseBuilder();
     embeddedDatabaseBuilder.setType(EmbeddedDatabaseType.HSQL);
-    embeddedDatabaseBuilder.setName("security_database");
-    embeddedDatabaseBuilder.addScript("classpath:/schema/schema.sql");
+    embeddedDatabaseBuilder.setName("sample_database");
+    embeddedDatabaseBuilder.addScript("classpath:/schema/schema_sample.sql");
     embeddedDatabaseBuilder.setSeparator(";");
     return embeddedDatabaseBuilder.build();
   }
   
-  @Bean(name="securityTransactionManager")
-  public PlatformTransactionManager transactionManager(@Qualifier("securityDS") DataSource dataSource) throws PropertyVetoException {
+  @Bean(name="sampleDSTransactionManager")
+  public PlatformTransactionManager transactionManager(@Qualifier("sampleDS") DataSource dataSource) throws PropertyVetoException {
     DataSourceTransactionManager dsTransactionManager = new DataSourceTransactionManager(dataSource);
     return dsTransactionManager;
   }
