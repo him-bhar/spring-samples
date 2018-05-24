@@ -20,7 +20,6 @@ import java.beans.PropertyVetoException;
 @Configuration
 @EnableTransactionManagement
 public class DBConfig {
-  
   private static Logger logger = LoggerFactory.getLogger(DBConfig.class);
 
   @Conditional(value=InMemDBCondition.class)

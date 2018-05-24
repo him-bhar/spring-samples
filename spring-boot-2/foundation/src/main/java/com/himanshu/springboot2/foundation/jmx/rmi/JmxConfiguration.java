@@ -1,5 +1,7 @@
 package com.himanshu.springboot2.foundation.jmx.rmi;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.DependsOn;
@@ -17,6 +19,8 @@ import java.util.Map;
 
 
 public abstract class JmxConfiguration {
+
+  private static Logger logger = LoggerFactory.getLogger(JmxConfiguration.class);
 
   @Value("${jmx.rmi.host:localhost}")
   private String rmiHost;
@@ -39,7 +43,7 @@ public abstract class JmxConfiguration {
     Map<String, Object> envProperties = new HashMap<>();
     envProperties.put(JMXConnectorServer.AUTHENTICATOR, new JMXAuthenticator() {
       public Subject authenticate(Object credentials) {
-        System.out.println(credentials);
+        logger.info("Performing JMX authentication");
         UsernamePasswordAuthenticationToken jmxToken = new UsernamePasswordAuthenticationToken(((String[])credentials)[0], ((String[])credentials)[1]);
         authenticationManager.authenticate(jmxToken);
         return new Subject(false, new HashSet<>(), new HashSet<Object>(), new HashSet<Object>());
