@@ -58,6 +58,10 @@ public class DBConfig {
     return ds;
   }
 
+  /**
+   * Need to check if JPA is used here,
+   * if yes then replace DataSourceTransactionManager with JPATransactionManager
+   */
   @Bean(name="securityTransactionManager")
   public PlatformTransactionManager transactionManager(@Qualifier("securityDS") DataSource dataSource) throws PropertyVetoException {
     DataSourceTransactionManager dsTransactionManager = new DataSourceTransactionManager(getDataSource());
