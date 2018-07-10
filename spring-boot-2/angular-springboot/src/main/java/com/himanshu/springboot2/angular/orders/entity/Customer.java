@@ -1,9 +1,7 @@
 package com.himanshu.springboot2.angular.orders.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Customer {
@@ -15,6 +13,8 @@ public class Customer {
   private String email;
   private String city;
   private String country;
+  @OneToMany(targetEntity = Order.class, mappedBy = "customer", fetch = FetchType.EAGER)
+  private List<Order> orders;
 
   public Long getId() {
     return id;
@@ -56,6 +56,14 @@ public class Customer {
     this.country = country;
   }
 
+  public List<Order> getOrders() {
+    return orders;
+  }
+
+  public void setOrders(List<Order> orders) {
+    this.orders = orders;
+  }
+
   @Override
   public String toString() {
     return "Customer{" +
@@ -64,6 +72,7 @@ public class Customer {
             ", email='" + email + '\'' +
             ", city='" + city + '\'' +
             ", country='" + country + '\'' +
+            //", orders=" + orders +
             '}';
   }
 }

@@ -11,10 +11,14 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.StreamSupport;
 
 @SpringBootApplication(scanBasePackages = {"com.himanshu.springboot2"}, exclude = DataSourceAutoConfiguration.class)
-@EnableTransactionManagement
 public class Main {
   private static Logger logger = LoggerFactory.getLogger(Main.class);
   public static void main(String[] args) {
@@ -23,14 +27,44 @@ public class Main {
     app.run(args);
   }
 
-  @Bean
+  /*@Bean
   public CommandLineRunner demo(CustomerService customerService) {
     return (args) -> {
       StreamSupport.stream(customerService.listAll().spliterator(), false)
               .map(customer -> customer.toString())
               .forEach(logger::info);
 
-      logger.info(customerService.getAndUpdateCustomer().toString());
+      Runnable r1 = () -> logger.info(customerService.getAndUpdateCustomerCountry(1l, "India").toString());
+      Runnable r2 = () -> logger.info(customerService.getAndUpdateCustomerCountry(1l, "United States").toString());
+      ExecutorService executorService = Executors.newFixedThreadPool(2);
+      List<Runnable> runnables = new ArrayList<>();
+      runnables.add(r1);
+      runnables.add(r2);
+      StreamSupport.stream(runnables.spliterator(), false).forEach(executorService::submit);
+      executorService.awaitTermination(100, TimeUnit.SECONDS);
+      System.exit(0);
+    };
+  }*/
+
+  /*@Bean
+  public CommandLineRunner demoItems(CustomerService customerService) {
+    return (args) -> {
+      StreamSupport.stream(customerService.getItems().spliterator(), false)
+              .map(item -> item.toString())
+              .forEach(logger::info);
+
+      System.exit(0);
+    };
+  }*/
+
+  @Bean
+  public CommandLineRunner demoOrders(CustomerService customerService) {
+    return (args) -> {
+      StreamSupport.stream(customerService.getOrders().spliterator(), false)
+              .map(order -> order.toString())
+              .forEach(logger::info);
+
+      System.exit(0);
     };
   }
 }
