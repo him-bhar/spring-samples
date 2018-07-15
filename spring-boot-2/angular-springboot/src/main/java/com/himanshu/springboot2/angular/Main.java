@@ -1,6 +1,7 @@
 package com.himanshu.springboot2.angular;
 
 import com.himanshu.springboot2.angular.orders.service.CustomerService;
+import com.himanshu.springboot2.angular.orders.service.UserRoleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -57,11 +58,33 @@ public class Main {
     };
   }*/
 
-  @Bean
+  /*@Bean
   public CommandLineRunner demoOrders(CustomerService customerService) {
     return (args) -> {
       StreamSupport.stream(customerService.getOrders().spliterator(), false)
               .map(order -> order.toString())
+              .forEach(logger::info);
+
+      System.exit(0);
+    };
+  }*/
+
+  /*@Bean
+  public CommandLineRunner demoOrders(CustomerService customerService) {
+    return (args) -> {
+      StreamSupport.stream(customerService.getOrdersViaJoinFetch().spliterator(), false)
+              .map(order -> order.toString())
+              .forEach(logger::info);
+
+      System.exit(0);
+    };
+  }*/
+
+  @Bean
+  public CommandLineRunner demoOrders(UserRoleService userRoleService) {
+    return (args) -> {
+      StreamSupport.stream(userRoleService.getUsers().spliterator(), false)
+              .map(user -> user.toString())
               .forEach(logger::info);
 
       System.exit(0);

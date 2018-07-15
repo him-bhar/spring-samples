@@ -2,6 +2,7 @@ package com.himanshu.springboot2.angular.config;
 
 import com.himanshu.springboot2.angular.orders.dao.*;
 import com.himanshu.springboot2.angular.orders.service.CustomerService;
+import com.himanshu.springboot2.angular.orders.service.UserRoleService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,5 +22,10 @@ public class OrderConfigurer {
   @Bean
   public ICustomerDaoNonData customerDaoNonData(@Qualifier("orderEntityManagerFactory")EntityManagerFactory emf) {
     return new CustomerDaoNonData();
+  }
+
+  @Bean
+  public UserRoleService userRoleService(UserDataDao userDataDao) {
+    return new UserRoleService(userDataDao);
   }
 }

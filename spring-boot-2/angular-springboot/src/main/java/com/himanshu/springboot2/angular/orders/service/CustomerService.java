@@ -48,6 +48,13 @@ public class CustomerService {
   }
 
   @Transactional(transactionManager="sampleDSTransactionManager")
+  public List<Order> getOrdersViaJoinFetch() {
+    List<Order> orders = new ArrayList<>();
+    orderDao.listAllViaJoinFetch().forEach(orders::add);
+    return orders;
+  }
+
+  @Transactional(transactionManager="sampleDSTransactionManager")
   public List<Order> getOrders() {
     List<Order> orders = new ArrayList<>();
     orderDao.findAll().forEach(orders::add);
