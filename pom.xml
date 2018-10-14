@@ -15,7 +15,7 @@
 	  <module>spring-boot-security-demo</module>
 	  <module>spring-concepts</module>
 	  <module>spring-context-loaders</module>
-	  <module>spring-quartz</module>
+	  <!--<module>spring-quartz</module>-->
 	  <!--<module>spring-security-custom-welcome-page</module>-->
 	  <module>spring-security-minified-sample</module>
 	  <module>springboot-eureka-demo</module>
