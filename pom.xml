@@ -23,5 +23,6 @@
       <module>spring5-webflux-demo</module>
 	  <module>springboot-web-reactive</module>
 	  <module>spring-boot-2</module>
+	  <module>springboot1-angular-demo</module>
 	</modules>
 </project>
