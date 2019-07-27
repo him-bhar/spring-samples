@@ -17,7 +17,7 @@
     <modules>
         <module>actuator-demo</module>
         <module>foundation</module>
-		<module>angular-springboot</module>
+        <module>angular-springboot</module>
     </modules>
 	
 	<properties>
