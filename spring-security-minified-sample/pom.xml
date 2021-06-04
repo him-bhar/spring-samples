@@ -33,7 +33,7 @@
 	<apache.commons-codec.version>1.6</apache.commons-codec.version>
 	<jackson-databind.version>2.8.6</jackson-databind.version>
 	<jackson-dataformat-xml.version>2.8.6</jackson-dataformat-xml.version>
-	<snake-yaml.version>1.17</snake-yaml.version>
+	<snake-yaml.version>1.26</snake-yaml.version>
 	<hibernate.version>5.4.0.Final</hibernate.version>
   </properties>
   
