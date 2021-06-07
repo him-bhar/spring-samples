@@ -12,7 +12,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<logback-version>0.9.30</logback-version>
+		<logback-version>1.2.0</logback-version>
 		<log4j-over-slf4j>1.6.4</log4j-over-slf4j>
 		<spring.version>3.0.7.RELEASE</spring.version>
 	</properties>
