@@ -14,7 +14,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<logback-version>0.9.30</logback-version>
 		<log4j-over-slf4j>1.6.4</log4j-over-slf4j>
-		<spring.version>3.0.7.RELEASE</spring.version>
+		<spring.version>5.3.18</spring.version>
 	</properties>
 	<build>
 		<plugins>
